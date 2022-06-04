@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,29 +9,29 @@
 
     <EditText
         android:id="@+id/cost_of_service"
-        android:hint="@string/cost_of_service"
-        android:layout_height="wrap_content"
         android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/cost_of_service"
+        android:inputType="numberDecimal"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:inputType="numberDecimal"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/service_question"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/how_was_the_service"
-        app:layout_constraintTop_toBottomOf="@id/cost_of_service"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cost_of_service" />
 
     <RadioGroup
         android:id="@+id/tip_options"
-        android:checkedButton="@id/option_twenty_percent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/service_question"
+        android:checkedButton="@id/option_twenty_percent"
+        android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
-        android:orientation="vertical">
+        app:layout_constraintTop_toBottomOf="@id/service_question">
 
         <RadioButton
             android:id="@+id/option_twenty_percent"
@@ -58,8 +57,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/round_up_tip"
-        app:layout_constraintStart_toStartOf="@id/tip_options"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/tip_options"
         app:layout_constraintTop_toBottomOf="@id/tip_options"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
 
@@ -68,19 +67,17 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/calculate"
-        app:layout_constraintTop_toBottomOf="@id/round_up_switch"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-    />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/round_up_switch" />
 
     <TextView
         android:id="@+id/tip_result"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/tip_amount"
-        app:layout_constraintTop_toBottomOf="@id/calculate_button"
         app:layout_constraintEnd_toEndOf="parent"
-    />
+        app:layout_constraintTop_toBottomOf="@id/calculate_button" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 
 
