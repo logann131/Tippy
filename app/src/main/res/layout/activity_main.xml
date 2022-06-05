@@ -62,7 +62,7 @@
         android:layout_height="wrap_content"
         android:checkedButton="@id/option_twenty_percent"
         android:orientation="vertical"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@id/service_question"
         app:layout_constraintTop_toBottomOf="@id/service_question">
 
         <RadioButton
@@ -84,13 +84,24 @@
             android:text="@string/okay_service" />
     </RadioGroup>
 
+    <ImageView
+        android:id="@+id/icon_round_up"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:importantForAccessibility="no"
+        app:srcCompat="@drawable/ic_round_up"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/round_up_switch"
+        app:layout_constraintBottom_toBottomOf="@id/round_up_switch" />
+
     <com.google.android.material.switchmaterial.SwitchMaterial
         android:id="@+id/round_up_switch"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/round_up_tip"
+        android:layout_marginStart="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@id/tip_options"
+        app:layout_constraintStart_toEndOf="@id/icon_round_up"
         app:layout_constraintTop_toBottomOf="@id/tip_options"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
 
