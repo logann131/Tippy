@@ -9,7 +9,7 @@ class MainActivity : AppCompatActivity() {
 
     // lateinit promises that the system will init the variable
     // before using it
-    lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         // app backend
@@ -19,25 +19,23 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.calculateButton.setOnClickListener{ calculateTip() }
+        binding.calculateButton.setOnClickListener { calculateTip() }
     }
 
-    fun calculateTip() {
+    private fun calculateTip() {
         // .text from EditView return an editable type, not a string
         // that's why to convert it to double, needs to convert to a string first
         // if (cost == null) { return } can be replaced with ?: return
         // val cost = binding.costOfService.text.toString().toDoubleOrNull() ?: return
         val cost = binding.costOfService.text.toString().toDoubleOrNull()
 
-        if (cost == null ){
+        if (cost == null) {
             binding.tipResult.text = ""
             return
         }
 
-        val tipPercentageSelectedId = binding.tipOptions.checkedRadioButtonId
-
         // use when func instead of if/else stm
-        val tipPercentage = when (tipPercentageSelectedId) {
+        val tipPercentage = when (binding.tipOptions.checkedRadioButtonId) {
             R.id.option_fifteen_percent -> 0.15
             R.id.option_eighteen_percent -> 0.18
             else -> 0.20
