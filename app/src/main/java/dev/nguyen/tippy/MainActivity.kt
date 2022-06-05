@@ -25,7 +25,14 @@ class MainActivity : AppCompatActivity() {
     fun calculateTip() {
         // .text from EditView return an editable type, not a string
         // that's why to convert it to double, needs to convert to a string first
-        val cost = binding.costOfService.text.toString().toDouble()
+        // if (cost == null) { return } can be replaced with ?: return
+        // val cost = binding.costOfService.text.toString().toDoubleOrNull() ?: return
+        val cost = binding.costOfService.text.toString().toDoubleOrNull()
+
+        if (cost == null ){
+            binding.tipResult.text = ""
+            return
+        }
 
         val tipPercentageSelectedId = binding.tipOptions.checkedRadioButtonId
 
