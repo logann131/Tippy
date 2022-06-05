@@ -27,14 +27,14 @@ class MainActivity : AppCompatActivity() {
         // that's why to convert it to double, needs to convert to a string first
         // if (cost == null) { return } can be replaced with ?: return
         // val cost = binding.costOfService.text.toString().toDoubleOrNull() ?: return
-        val cost = binding.costOfService.text.toString().toDoubleOrNull()
+        val cost = binding.costOfServiceEditText.text.toString().toDoubleOrNull()
 
         if (cost == null) {
             binding.tipResult.text = ""
             return
         }
 
-        // use when func instead of if/else stm
+        // use "when" function instead of if/else stm
         val tipPercentage = when (binding.tipOptions.checkedRadioButtonId) {
             R.id.option_fifteen_percent -> 0.15
             R.id.option_eighteen_percent -> 0.18
